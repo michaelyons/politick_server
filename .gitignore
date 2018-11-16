@@ -1,2 +1,7 @@
 /node_modules
+/config/keys.js
+/keys.js
+/variables.env
+/config/variables.env
+/config/twitterKeys.js
 /.env
