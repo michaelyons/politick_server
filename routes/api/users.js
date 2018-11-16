@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 // const Joi = require('joi');
 
-router.get('/test', (req, res) => res.json({ msg: 'werks' }));
+router.get('/test', (req, res) => res.json({ msg: 'users werks' }));
 
 // const User = require('../models/User');
 

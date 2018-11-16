@@ -10,6 +10,6 @@ const passport = require('passport');
 //REQUEST TOKEN
 // router.get('/login', passport.authenticate('twitter'));
 
-router.get('/test', (req, res) => res.json({ msg: 'werks' }));
+router.get('/test', (req, res) => res.json({ msg: 'twitter werks' }));
 
 module.exports = router;
