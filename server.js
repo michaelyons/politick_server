@@ -64,6 +64,11 @@ mongoose
   .then(() => console.log('mongoDB connected'))
   .catch(err => console.log(err));
 
+if (app.get('env') === 'development') {
+  app.use(morgan('dev'));
+  console.log('Morgan on');
+}
+
 //Routes
 app.use('/api/users', users);
 app.use('/twitter', twitter);
