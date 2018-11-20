@@ -22,7 +22,40 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 app.use(helmet());
+
+//Passport Session
+app.use(session({ resave: false, saveUninitialized: true, secret: 'SECRET' }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(
+  new TwitterStrategy(
+    {
+      consumerKey: process.env.CONSUMER_KEY,
+      consumerSecret: process.env.CONSUMER_KEY_SECRET,
+      callbackURL: 'https://ml-politick-server.herokuapp.com/twitter/return',
+      includeEmail: true
+    },
+    function(token, tokenSecret, profile, done) {
+      User.upsertTwitterUser(token, tokenSecret, profile, function(err, user) {
+        return done(err, user);
+      });
+    }
+  )
+);
+
+passport.serializeUser((user, callback) => {
+  callback(null, user);
+});
+
+passport.deserializeUser((obj, callback) => {
+  callback(null, obj);
+});
 
 //DB config
 const db = require('./config/keys').mongoURI;
@@ -41,4 +74,4 @@ app.get('/', (request, response) => {
 
 //Run Server
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(port, () => console.log(`Server running on port ${port}`));
