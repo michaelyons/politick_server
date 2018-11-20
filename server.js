@@ -66,7 +66,7 @@ mongoose
 
 //Routes
 app.use('/api/users', users);
-app.use('/api/twitter', twitter);
+app.use('/twitter', twitter);
 
 app.get('/', (request, response) => {
   response.send('werks');

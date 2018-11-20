@@ -1,0 +1,6 @@
+{
+  "name": "Politick Server - Production",
+  "mail": {
+    "host": "production-mail-server"
+  }
+}
