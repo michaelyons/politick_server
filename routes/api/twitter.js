@@ -15,10 +15,7 @@ router.get(
   '/return',
   passport.authenticate('twitter', { session: false }),
   async (request, response) => {
-    const { username } = request.user;
-    return response.redirect(
-      `https://informant-lobby.herokuapp.com/${username}`
-    );
+    return response.redirect(`https://informant-lobby.herokuapp.com/`);
   }
 );
 
