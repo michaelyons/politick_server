@@ -34,7 +34,7 @@ router.post('/posttweet', async (request, response) => {
   });
 
   client
-    .post('/statuses/update', {
+    .post('statuses/update', {
       status: request.body.status
     })
     .then(function(tweet) {
