@@ -24,7 +24,9 @@ router.get(
 
 //tweet post request
 router.post('/posttweet', async (request, response) => {
-  const user = await User.findById(request.body.id).select('twitterProvider');
+  const user = await User.findById(request.body.userId).select(
+    'twitterProvider'
+  );
 
   const client = new Twitter({
     consumer_key: process.env.CONSUMER_KEY,
