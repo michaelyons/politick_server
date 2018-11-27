@@ -17,7 +17,7 @@ router.get(
   async (request, response) => {
     const { _id } = request.user;
     return response.redirect(
-      `https://informant-lobby.herokuapp.com/?user=${_id}`
+      `https://politik-client.herokuapp.com/?user=${_id}`
     );
   }
 );
