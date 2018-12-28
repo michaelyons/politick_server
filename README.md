@@ -2,4 +2,4 @@
 
 Twitter Database for use with Politick
 
-[Politick](https://informant-lobby.herokuapp.com/)
+[Politick](https://ml-politick-server.herokuapp.com/)
